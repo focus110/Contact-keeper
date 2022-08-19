@@ -3,6 +3,13 @@ const app = express();
 const auth = require("./routes/auth");
 const users = require("./routes/users");
 const contacts = require("./routes/contacts");
+const connectDB = require("./config/db");
+
+// Connect Mongodb Database
+connectDB();
+
+// Init Middleware
+app.use(express.json({ extended: false }));
 
 const PORT = process.env.PORT || 5000;
 
