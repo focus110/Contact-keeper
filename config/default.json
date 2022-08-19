@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://emma:123abc@atlascluster.s9193vs.mongodb.net/?retryWrites=true&w=majority"
+    "mongoURI": "",
+    "jwtSecret": ""
 }
