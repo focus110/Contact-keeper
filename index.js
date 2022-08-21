@@ -4,9 +4,13 @@ const auth = require("./routes/auth");
 const users = require("./routes/users");
 const contacts = require("./routes/contacts");
 const connectDB = require("./config/db");
+var cors = require("cors");
 
 // Connect Mongodb Database
 connectDB();
+
+// cors
+app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));

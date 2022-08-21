@@ -1,9 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
 
 const Register = () => {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
+
   const { setAlert } = alertContext;
+  const { register, error, clearErrors } = authContext;
+
+  useEffect(() => {
+    if (error === "User already exists") {
+      setAlert(error, "danger");
+      clearErrors();
+    }
+  }, [error]);
 
   const [user, setUser] = useState({
     name: "",
@@ -18,14 +29,12 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (name == "" || email === "" || password === "") {
+    if (name === "" || email === "" || password === "") {
       setAlert("Please enter all fields", "danger");
-    } else if (password < 6 || password2 < 6) {
-      setAlert("Password should be at least 6 charaters", "danger");
     } else if (password !== password2) {
       setAlert("Password do not match", "danger");
     } else {
-      console.log("Register submit");
+      register({ name, email, password });
     }
   };
 
