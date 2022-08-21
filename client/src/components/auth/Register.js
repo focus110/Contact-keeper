@@ -41,7 +41,11 @@ const Register = (props) => {
     } else if (password !== password2) {
       setAlert("Password do not match", "danger");
     } else {
-      register({ name, email, password });
+      register({
+        name: name.toLowerCase(),
+        email: email.toLowerCase(),
+        password,
+      });
     }
   };
 

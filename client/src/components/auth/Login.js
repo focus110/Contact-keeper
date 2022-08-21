@@ -37,7 +37,7 @@ const Login = () => {
     if (email === "" || password === "") {
       setAlert("Please enter all fields", "danger");
     } else {
-      login({ email, password });
+      login({ email: email.toLowerCase(), password });
     }
   };
 

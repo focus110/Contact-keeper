@@ -31,8 +31,6 @@ const AuthState = (props) => {
     // load token into global header
     if (localStorage.token) {
       setAuthToken(localStorage.token);
-    } else {
-      console.log("No token found");
     }
 
     try {
@@ -45,6 +43,7 @@ const AuthState = (props) => {
     } catch (err) {
       dispatch({
         type: AUTH_ERROR,
+        payload: err,
       });
     }
   };
@@ -88,7 +87,7 @@ const AuthState = (props) => {
   };
 
   // Logout
-  const logOut = () => dispatch({ type: LOGOUT });
+  const logOut = () => dispatch({ type: LOGOUT, payload: null });
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
