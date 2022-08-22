@@ -26,7 +26,7 @@ function App() {
                 <Alerts />
                 <Routes>
                   <Route
-                    path="/"
+                    path="/home"
                     element={
                       <ProtectedRoute>
                         <Home />
@@ -35,7 +35,7 @@ function App() {
                   />
                   <Route path="/about" element={<About />} />
                   <Route path="/register" element={<Register />} />
-                  <Route path="/login" element={<Login />} />
+                  <Route path="/" element={<Login />} />
                   <Route path="*" element={"404 Not Found"} />
                 </Routes>
               </div>
