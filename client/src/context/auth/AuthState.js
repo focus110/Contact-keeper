@@ -25,6 +25,7 @@ const AuthState = (props) => {
 
   const [state, dispatch] = useReducer(authReducer, initialState);
   const baseUrl = "http://localhost:5000/";
+  // const baseUrl = "https://boiling-taiga-12518.herokuapp.com/";
 
   // Load User
   const loadUser = async () => {

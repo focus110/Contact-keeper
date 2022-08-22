@@ -25,6 +25,7 @@ const ContactState = (props) => {
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
   const baseUrl = "http://localhost:5000/";
+  // const baseUrl = "https://boiling-taiga-12518.herokuapp.com/";
 
   // Get Contact
   const getContacts = async () => {
