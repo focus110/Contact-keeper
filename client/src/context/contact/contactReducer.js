@@ -11,7 +11,7 @@ import {
   CONTACT_ERROR,
 } from "../types";
 
-export default (state, action) => {
+const contact = (state, action) => {
   switch (action.type) {
     case GET_CONTACTS:
       return {
@@ -81,3 +81,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default contact;
