@@ -8,12 +8,10 @@ const Register = (props) => {
   const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
-  const { register, error, clearErrors, isAuthenticated, loadUser } =
-    authContext;
+  const { register, error, clearErrors, isAuthenticated } = authContext;
   const goTo = useNavigate();
 
   useEffect(() => {
-    loadUser();
     if (isAuthenticated) {
       goTo("/home");
     }
