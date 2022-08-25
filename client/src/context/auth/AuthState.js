@@ -44,7 +44,7 @@ const AuthState = (props) => {
     } catch (err) {
       dispatch({
         type: AUTH_ERROR,
-        payload: err,
+        payload: err.response.data.msg,
       });
     }
   };

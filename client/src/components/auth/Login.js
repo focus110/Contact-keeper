@@ -8,12 +8,13 @@ const Login = () => {
   const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
-  const { login, error, clearErrors, isAuthenticated } = authContext;
+  const { login, error, clearErrors, isAuthenticated, loadUser } = authContext;
   const goTo = useNavigate();
 
   useEffect(() => {
+    loadUser();
     if (isAuthenticated) {
-      goTo("/");
+      goTo("/home");
     }
 
     if (error === "Invalid Credentials") {

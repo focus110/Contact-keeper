@@ -8,12 +8,14 @@ const Register = (props) => {
   const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
-  const { register, error, clearErrors, isAuthenticated } = authContext;
+  const { register, error, clearErrors, isAuthenticated, loadUser } =
+    authContext;
   const goTo = useNavigate();
 
   useEffect(() => {
+    loadUser();
     if (isAuthenticated) {
-      goTo("/");
+      goTo("/home");
     }
 
     if (error === "User already exists") {
@@ -21,7 +23,7 @@ const Register = (props) => {
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  }, [error, isAuthenticated]);
 
   const [user, setUser] = useState({
     name: "",
